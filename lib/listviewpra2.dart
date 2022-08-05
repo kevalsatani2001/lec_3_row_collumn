@@ -10,6 +10,8 @@ class listpra2 extends StatefulWidget {
 }
 
 class _listpra2State extends State<listpra2> {
+  TextStyle? labeltext =
+      const TextStyle(color: Colors.amber, fontFamily: "Shrikhand");
   List person = [
     "1",
     "2",
@@ -65,49 +67,78 @@ class _listpra2State extends State<listpra2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Contect List")),
+      appBar: AppBar(
+        leading: Icon(Icons.person),
+        title: const Text(
+          "Contact list",
+          style: TextStyle(fontFamily: "Shrikhand"),
+        ),
+        actions: [Icon(Icons.more_vert)],
+        backgroundColor: Colors.orange,
+      ),
+
+      //floatingActionButton: FloatingActionButton.large(onPressed: ),
+      floatingActionButton: FloatingActionButton(
+          // isExtended: true,
+          child: Icon(Icons.add),
+          backgroundColor: Colors.green,
+          onPressed: () {}
+          // setState()() {
+          // print("00"),
+          ), //};
       body: Center(
         child: ListView.builder(
           itemCount: names.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 70,
-                width: double.infinity,
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(images[index]),
-                      backgroundColor: Colors.amber,
-                    ),
-                    Column(
-                      children: [
-                        Text(names[index]),
-                        Text(names[index]),
-                      ],
-                    ),
-                    const Spacer(),
-                    Icon(Icons.message),
-                    SizedBox(width: 10),
-                    Icon(Icons.call),
-                    SizedBox(width: 10),
-                    Icon(Icons.whatsapp),
-                  ],
-                ),
+              padding: const EdgeInsets.all(0),
+              child: Card(
+                //color: Colors.lightGreenAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0)),
+                margin: const EdgeInsets.all(5),
+                shadowColor: Color.fromARGB(255, 232, 27, 12),
+                child: Container(
+                  height: 70,
+                  width: double.infinity,
+                  //color: Colors.lightBlue,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage(images[index]),
+                        backgroundColor: Colors.amber,
+                      ),
+                      Column(
+                        children: [
+                          const Divider(),
+                          const SizedBox(
+                            width: 30,
+                          ),
+                          Text(names[index]),
+                          Text(names[index]),
+                        ],
+                      ),
+                      const Spacer(),
+                      Icon(Icons.message),
+                      SizedBox(width: 10),
+                      Icon(Icons.call),
+                      SizedBox(width: 10),
+                      Icon(Icons.whatsapp),
+                    ],
+                  ),
 
-                // child: ListTile(
-                //   leading: CircleAvatar(
-                //     backgroundImage: AssetImage(images[index]),
-                //     backgroundColor: Colors.amber,
-                //   ),
-                //   title: Text(person[index]),
-                //   subtitle: Text(names[index]),
-                //   trailing: Column(
-                //     children: [Icon(icon[index]), Icon(icon[index])],
-                //   ),
-                // ),
+                  // child: ListTile(
+                  //   leading: CircleAvatar(
+                  //     backgroundImage: AssetImage(images[index]),
+                  //     backgroundColor: Colors.amber,
+                  //   ),
+                  //   title: Text(person[index]),
+                  //   subtitle: Text(names[index]),
+                  //   trailing: Column(
+                  //     children: [Icon(icon[index]), Icon(icon[index])],
+                  //   ),
+                  // ),
+                ),
               ),
             );
           },

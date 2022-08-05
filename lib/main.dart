@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lec_5/listview.dart';
 import 'package:lec_5/listviewpra1.dart';
 import 'package:lec_5/listviewpra2.dart';
+import 'package:lec_5/n.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       //home: list1(),
       //home: listpra1(),
       home: listpra2(),
+      // home: const newpro(),
     );
   }
 }
